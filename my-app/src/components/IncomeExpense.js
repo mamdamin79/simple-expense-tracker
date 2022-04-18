@@ -1,5 +1,9 @@
 import React from 'react';
-const IncomeExpense = () => {
+const IncomeExpense = (props) => {
+    let inc = 0;
+    let exp = 0;
+    props.transactions.filter(t=> t.amount > 0).map(t=> inc += parseFloat(t.amount))
+    props.transactions.filter(t=> t.amount < 0).map(t=> exp += parseFloat(t.amount))
     return (
         <div className="inc-exp-container">
             <div className="income-div">
@@ -7,7 +11,7 @@ const IncomeExpense = () => {
                     INCOME
                 </p>
                 <p className="green">
-                    $30000
+                    {inc}
                 </p>
             </div>
             <div className="expense-div">
@@ -15,7 +19,7 @@ const IncomeExpense = () => {
                     EXPENSE
                 </p>
                 <p className="red">
-                    $25600
+                    {exp}
                 </p>
             </div>
         </div>

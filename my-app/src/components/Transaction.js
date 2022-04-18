@@ -1,10 +1,13 @@
 import React from 'react';
-const Transaction = () => {
+const Transaction = (props) => {
     return (
         <>
             <li>
-                <span>title</span>
-                <span>amount</span>
+                <span>{props.info.description}</span>
+                <div className="button-container">
+                    <span>{props.info.amount}</span>
+                    <button onClick={() => props.removeTransaction(props.info.id)} className="remove-button">-</button>
+                </div>
             </li>
         </>
     );
