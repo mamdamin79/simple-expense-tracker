@@ -11,7 +11,7 @@ const NewTransaction = (props) => {
                 <input value={transInfo.description} onChange={(e) => setTransInfo({...transInfo, description: e.target.value})} type="text" placeholder="description..." />
             </div>
             <div>
-                <label htmlFor="">Amount</label>
+                <label htmlFor="">Amount <span>(positive-income,negative-expense)</span></label>
                 <input value={transInfo.amount} onChange={(e) => setTransInfo({...transInfo, amount: e.target.value})} type="number" placeholder="how much..." />
             </div>
             <button className='add-btn' onClick={()=> props.addTransaction({...transInfo,id:v4()})}>Create</button>
